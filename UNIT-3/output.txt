@@ -1,0 +1,77 @@
+╔═══════════════════════════════════════════════════════════════╗
+║   Sorting Performance Analyzer (SPA)                          ║
+║   ETCCDS202 | Unit 3 Assignment                               ║
+║   Roll No: 2501730302                                         ║
+╚═══════════════════════════════════════════════════════════════╝
+
+=================================================================
+  CORRECTNESS CHECK
+=================================================================
+
+  Input:    [5, 2, 9, 1, 5, 6]
+  Expected: [1, 2, 5, 5, 6, 9]
+
+  Insertion Sort       → [1, 2, 5, 5, 6, 9]  [PASS]
+  Merge Sort           → [1, 2, 5, 5, 6, 9]  [PASS]
+  Quick Sort           → [1, 2, 5, 5, 6, 9]  [PASS]
+
+  Overall: ALL PASS ✓
+
+=================================================================
+  PERFORMANCE MEASUREMENT (times in milliseconds)
+=================================================================
+
+  ── Input type: RANDOM ──
+  Algorithm                  n=1000     n=5000      n=10000
+  --------------------------------------------------------
+  Insertion Sort             13.81 ms    390.33 ms   1469.04 ms
+  Merge Sort                  1.23 ms      7.38 ms     16.13 ms
+  Quick Sort                  0.86 ms      4.88 ms     10.66 ms
+
+  ── Input type: SORTED ──
+  Algorithm                  n=1000     n=5000      n=10000
+  --------------------------------------------------------
+  Insertion Sort              0.09 ms      0.35 ms      0.75 ms
+  Merge Sort                  0.85 ms      5.20 ms     10.96 ms
+  Quick Sort                 39.76 ms    885.45 ms   3367.93 ms
+
+  ── Input type: REVERSE ──
+  Algorithm                  n=1000     n=5000      n=10000
+  --------------------------------------------------------
+  Insertion Sort             44.30 ms    690.62 ms   2944.14 ms
+  Merge Sort                  0.87 ms      4.80 ms     10.58 ms
+  Quick Sort                 22.81 ms    618.28 ms   2312.35 ms
+
+=================================================================
+  FULL RESULTS TABLE (27 experiments)
+=================================================================
+
+     Size    Input Type    Insertion Sort    Merge Sort    Quick Sort
+  --------------------------------------------------------------------
+     1000        random           13.81 ms        1.23 ms        0.86 ms
+     1000        sorted            0.09 ms        0.85 ms       39.76 ms
+     1000       reverse           44.30 ms        0.87 ms       22.81 ms
+     5000        random          390.33 ms        7.38 ms        4.88 ms
+     5000        sorted            0.35 ms        5.20 ms      885.45 ms
+     5000       reverse          690.62 ms        4.80 ms      618.28 ms
+    10000        random         1469.04 ms       16.13 ms       10.66 ms
+    10000        sorted            0.75 ms       10.96 ms     3367.93 ms
+    10000       reverse         2944.14 ms       10.58 ms     2312.35 ms
+
+
+=================================================================
+  ALGORITHM PROPERTIES SUMMARY
+=================================================================
+
+  Algorithm               Average        Worst     Stable         Memory
+  ----------------------------------------------------------------------
+  Insertion Sort           O(n^2)         O(n)     Stable       In-place
+  Merge Sort           O(n log n)   O(n log n)     Stable   Out-of-place
+  Quick Sort          O(n log n)*     O(n^2)**   Unstable       In-place
+
+  * Quick Sort average O(n log n) on random data
+  ** Quick Sort degrades to O(n^2) on sorted/reverse-sorted with last-element pivot
+
+=================================================================
+  All experiments completed.
+=================================================================
